@@ -1,0 +1,4 @@
+<plugin>
+    <name>case-class-2-tuple</name>
+    <classname>cc2t.plugin.CaseClass2TuplePlugin</classname>
+</plugin>
