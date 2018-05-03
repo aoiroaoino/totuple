@@ -1,6 +1,6 @@
 organization := "com.github.aoiroaoino"
 
-name := "case-class-2-tuple"
+name := "totuple"
 
 scalaVersion := "2.12.5"
 
@@ -12,9 +12,6 @@ libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
 
 scalacOptions in Test ++= {
   val jar = (packageBin in Compile).value
-  println(jar)
-  println(jar.lastModified)
-  println(jar.getAbsolutePath)
   Seq(
     "-Yrangepos",
     s"-Xplugin:${jar.getAbsolutePath}",
