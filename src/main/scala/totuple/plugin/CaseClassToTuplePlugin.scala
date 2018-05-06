@@ -5,8 +5,8 @@ import scala.tools.nsc.plugins.{Plugin, PluginComponent}
 import scala.tools.nsc.transform.{Transform, TypingTransformers}
 
 class CaseClassToTuplePlugin(val global: Global) extends Plugin {
-  override val name = "case-class-to-tuple-plugin"
-  override val description = "Generate toTuple method for case class"
+  override val name = "totuple-plugin"
+  override val description = "Add methods to case classes"
   override val components: List[PluginComponent] = new CaseClassToTuplePluginComponent(global) :: Nil
 }
 
@@ -17,7 +17,8 @@ class CaseClassToTuplePluginComponent(val global: Global)
 {
   import global._
 
-  override val phaseName = "case-class-2-tuple"
+  override val phaseName = "totuple"
+  override val description = "add methods to case classes"
   override val runsAfter = "parser" :: Nil
 
   override def newTransformer(unit: CompilationUnit): Transformer =
