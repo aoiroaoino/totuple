@@ -27,14 +27,24 @@ class CaseClassToTuplePluginComponent(val global: Global)
   class CaseClassToTupleTransformer(unit: CompilationUnit) extends TypingTransformer(unit) {
 
     override def transform(tree: Tree): Tree = tree match {
-      case classDef @ ClassDef(mods, name, _, impl) if mods.hasFlag(Flag.CASE) =>
-        val toTuple = atOwner(impl.symbol)(
-          newDefDef(impl.symbol, q"${name.toTermName}.unapply(this).get")(name = newTermName("toTuple"))
-        )
+      case classDef @ ClassDef(mods, name, _, impl) if mods.hasFlag(Flag.CASE) && 0 < numOfCtorArgs(impl) && numOfCtorArgs(impl) <= 22 =>
+        val rhs = numOfCtorArgs(impl) match {
+          case 1 => q"Tuple1(${name.toTermName}.unapply(this).get)"
+          case _ => q"${name.toTermName}.unapply(this).get"
+        }
+        val toTuple = atOwner(impl.symbol)(newDefDef(impl.symbol, rhs)(name = newTermName("toTuple")))
         val newImpl = atPos(impl.pos)(Template(impl.parents, impl.self, toTuple :: impl.body))
         copyClassDef(classDef)(impl = newImpl)
       case _ =>
         super.transform(tree)
     }
+
+    // support only to the first argument group
+    private def numOfCtorArgs(template: Template): Int =
+      template.body
+        .collectFirst { case DefDef(_, name, _, vparamss, _, _) if name string_== "<init>" => vparamss }
+        .flatMap(_.headOption)
+        .map(_.length)
+        .getOrElse(0)
   }
 }
