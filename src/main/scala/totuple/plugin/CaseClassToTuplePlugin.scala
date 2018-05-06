@@ -17,7 +17,7 @@ class CaseClassToTuplePluginComponent(val global: Global)
 {
   import global._
 
-  override val phaseName = "totuple"
+  override val phaseName = "addtotuplemethod"
   override val description = "add methods to case classes"
   override val runsAfter = "parser" :: Nil
 
