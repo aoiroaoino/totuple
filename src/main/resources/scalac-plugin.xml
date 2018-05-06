@@ -1,4 +1,4 @@
 <plugin>
-    <name>case-class-to-tuple</name>
+    <name>totuple-plugin</name>
     <classname>totuple.plugin.CaseClassToTuplePlugin</classname>
 </plugin>
