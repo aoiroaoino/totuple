@@ -1,4 +1,4 @@
-package cc2t.plugin
+package totuple.plugin
 
 case class User(id: Long, name: String) {
 //  def toTuple: (Long, String) = User.unapply(this).get

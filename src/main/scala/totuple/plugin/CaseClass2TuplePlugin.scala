@@ -1,4 +1,4 @@
-package cc2t.plugin
+package totuple.plugin
 
 import scala.tools.nsc.Global
 import scala.tools.nsc.plugins.{Plugin, PluginComponent}
