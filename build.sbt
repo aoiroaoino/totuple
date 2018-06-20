@@ -18,3 +18,5 @@ scalacOptions in Test ++= {
     s"-JlastModified=${jar.lastModified}"
   )
 }
+
+publishTo := sonatypePublishTo.value
