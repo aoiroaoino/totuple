@@ -6,7 +6,7 @@ scalaVersion := "2.12.5"
 
 crossScalaVersions := Seq("2.11.11", "2.12.5")
 
-version := "0.1.0-SNAPSHOT"
+version := "0.1.0"
 
 libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
 
