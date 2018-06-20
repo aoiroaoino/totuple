@@ -6,18 +6,10 @@ Support scala versions: Scala 2.11 and 2.12
 
 ## Usage
 
-WIP: **First stable release not yet.**
-
-```sh
-$ git clone git@github.com:aoiroaoino/totuple.git
-
-$ cd totuple && sbt publishLocal
-```
-
 Add following setting in your `build.sbt`.
 
 ```
-addCompilerPlugin("com.github.aoiroaoino" %% "totuple" % "0.1.0-SNAPSHOT")
+addCompilerPlugin("com.github.aoiroaoino" %% "totuple" % "0.1.2")
 ```
 
 The toTuple method is added to the case class with arguments 1 to 22.
