@@ -2,9 +2,9 @@ organization := "com.github.aoiroaoino"
 
 name := "totuple"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.6"
 
-crossScalaVersions := Seq("2.11.11", "2.12.5")
+crossScalaVersions := Seq("2.11.11", "2.12.6")
 
 version := "0.1.1-SNAPSHOT"
 
