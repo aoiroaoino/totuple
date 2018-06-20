@@ -8,6 +8,13 @@ sonatypeProjectHosting := Some(GitHubHosting("aoiroaoino", "totuple", "aoiro.aoi
 
 homepage := Some(url("https://github.com/aoiroaoino/totuple"))
 
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
+
 scmInfo := Some(
   ScmInfo(
       url("https://github.com/aoiroaoino/totuple"),
