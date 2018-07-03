@@ -4,7 +4,7 @@ name := "totuple"
 
 scalaVersion := "2.12.6"
 
-crossScalaVersions := Seq("2.11.11", "2.12.6")
+crossScalaVersions := Seq("2.11.12", "2.12.6")
 
 version := "0.1.3-SNAPSHOT"
 
